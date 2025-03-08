@@ -15,21 +15,21 @@ lock = threading.Lock()
 
 def scrape_team_year(team, year):
     options = Options()
-    options.add_argument("--headless")  # Run Firefox in headless mode
-    service = Service("geckodriver.exe")
+    options.add_argument('--headless')  # Run Firefox in headless mode
+    service = Service('geckodriver.exe')
     driver = webdriver.Firefox(service=service, options=options)
 
-    url = f"https://www.basketball-reference.com/teams/{team}/{year}.html"
-    print(f"Accessing URL: {url}")
+    url = f'https://www.basketball-reference.com/teams/{team}/{year}.html'
+    print(f'Accessing URL: {url}')
     driver.get(url)
 
     # Wait for the page to load completely
     try:
         WebDriverWait(driver, 5).until(
-            EC.presence_of_element_located((By.ID, "per_game_stats"))
+            EC.presence_of_element_located((By.ID, 'per_game_stats'))
         )
     except Exception as e:
-        print(f"Failed to load page for {team} {year}: {e}")
+        print(f'Failed to load page for {team} {year}: {e}')
         driver.quit()
         return
 
@@ -80,7 +80,7 @@ def scrape_team_year(team, year):
             with lock:
                 all_per_game_data.append(player_data)
     else:
-        print(f"No Per Game table found for {team} {year}")
+        print(f'No Per Game table found for {team} {year}')
 
     # Scrape Play-by-Play Stats
     pbp_table = soup.find('table', id='pbp_stats')
@@ -119,18 +119,18 @@ def scrape_team_year(team, year):
             with lock:
                 all_pbp_data.append(pbp_data)
     else:
-        print(f"No PBP table found for {team} {year}")
+        print(f'No PBP table found for {team} {year}')
 
     # Quit the WebDriver
     driver.quit()
 
 # Teams and years to scrape
-nba_teams = ["ATL", "BRK","BOS", "NJN", "CHA", "CHI", "CHO", "CLE", "DET", "IND", "MIA", "MIL", 
-             "NYK", "ORL", "PHI", "TOR", "WAS", "DAL", "DEN", "GSW", "HOU", "LAC", 
-             "LAL", "MEM", "MIN", "NOP", "OKC", "PHX", "POR", "SAC", "SAS", "UTA"]
+nba_teams = ['ATL', 'BRK','BOS', 'NJN', 'CHA', 'CHI', 'CHO', 'CLE', 'DET', 'IND', 'MIA', 'MIL', 
+             'NYK', 'ORL', 'PHI', 'TOR', 'WAS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 
+             'LAL', 'MEM', 'MIN', 'NOP', 'NOH', 'OKC', 'PHO', 'POR', 'SAC', 'SAS', 'UTA']
 years = range(2010, 2025)
 
-## (2012-2013 onward) BRK = NJN  = Nets; CHA = (2014-15 onwards)CHO = Bobcats
+## (2012-2013 onward) BRK = NJN  = Nets; CHA = (2014-15 onwards)CHO = Bobcats; NOP = NOH = Pelicans
 
 # Use ThreadPoolExecutor to scrape data concurrently
 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
@@ -142,8 +142,8 @@ df_per_game = pd.DataFrame(all_per_game_data)
 df_pbp = pd.DataFrame(all_pbp_data)
 
 # Debugging: Print columns of both DataFrames
-print("Per Game Stats Columns:", df_per_game.columns.tolist())
-print("PBP Stats Columns:", df_pbp.columns.tolist())
+print('Per Game Stats Columns:', df_per_game.columns.tolist())
+print('PBP Stats Columns:', df_pbp.columns.tolist())
 
 # Merge DataFrames on Player Name and Year
 if not df_per_game.empty and not df_pbp.empty:
@@ -152,9 +152,10 @@ if not df_per_game.empty and not df_pbp.empty:
     df_combined['Team'] = df_combined['Team'].replace({
         'CHO': 'CHA',
         'NJN': 'BRK'
+        'NOP': 'NOH'
     })
     # Export combined DataFrame to CSV
     df_combined.to_csv('nba_combined_stats.csv', index=False)
-    print("Data scraping complete and saved to 'nba_combined_stats.csv'")
+    print('Data scraping complete and saved to nba_combined_stats.csv')
 else:
-    print("No data to merge. Check if tables were scraped correctly.")
+    print('No data to merge. Check if tables were scraped correctly.')
