@@ -1,2 +1,2 @@
-# fifa-rating-prediction
-ML application for predicting fifa (ea fc) rating in the upcoming year based on real world performance
+# 2k-predictor
+ML application for predicting nba 2k in game player rating in the upcoming year based on real world performance
