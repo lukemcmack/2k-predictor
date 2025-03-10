@@ -9,19 +9,14 @@ import pandas as pd
 import concurrent.futures
 import threading
 
-nba_teams = ['ATL', 'BRK']#,'BOS', 'NJN' 'CHA', 'CHI', 'CHO', 'CLE', 'DET', 'IND', 'MIA', 'MIL'
-             #'NYK', 'ORL', 'PHI', 'TOR', 'WAS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 
-             #'LAL', 'MEM', 'MIN', 'NOP', 'NOH', 'OKC', 'PHO', 'POR', 'SAC', 'SAS', 'UTA']
-
-years = range(2025, 2025)
-
-all_per_game_data = []
-all_per_game_data_post = []
-all_pbp_data = []
-all_pbp_data_post = []
-lock = threading.Lock()
-
 def scrape_team_year(team, year):
+    all_per_game_data = []
+    all_per_game_data_post = []
+    all_pbp_data = []
+    all_pbp_data_post = []
+
+    lock = threading.Lock()
+
     options = Options()
     options.add_argument('--headless')  # Run Firefox in headless mode
     service = Service('geckodriver')
@@ -83,7 +78,7 @@ def scrape_team_year(team, year):
                 'turnovers_per_game': cols[26].text.strip(),
                 'personal_fouls_per_game': cols[27].text.strip(),
                 'points_per_game': cols[28].text.strip(),
-                'awards': cols[29].text.strip()                
+                'awards': cols[29].text.strip()
             }
             with lock:
                 all_per_game_data.append(player_data)
@@ -135,7 +130,7 @@ def scrape_team_year(team, year):
     else:
         print(f'No Per Game_post table found for {team} {year}')
 
-        # Scrape Play-by-Play Stats
+    # Scrape Play-by-Play Stats
     pbp_table = soup.find('table', id='pbp_stats')
     if pbp_table:
         rows = pbp_table.find_all('tr')[1:]  # Skip the header row
@@ -149,7 +144,7 @@ def scrape_team_year(team, year):
                 'name': cols[1].text.strip(),
                 'pg%': cols[7].text.strip(),
                 'sg%': cols[8].text.strip(),
-                'sg%': cols[9].text.strip(),
+                'sf%': cols[9].text.strip(),
                 'pf%': cols[10].text.strip(),
                 'c%': cols[11].text.strip(),
                 'on_court_+/-': cols[12].text.strip(),
@@ -168,7 +163,7 @@ def scrape_team_year(team, year):
     else:
         print(f'No PBP table found for {team} {year}')
 
-    # scrape per game postseason data
+    # Scrape per game postseason PBP data
     pbp_table_post = soup.find('table', id='pbp_stats_post')
     if pbp_table_post:
         rows = pbp_table_post.find_all('tr')[1:]  # Skip the header row
@@ -204,19 +199,16 @@ def scrape_team_year(team, year):
     # Quit the WebDriver
     driver.quit()
 
-# Use ThreadPoolExecutor to scrape data concurrently
-with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-    futures = [executor.submit(scrape_team_year, team, year) for team in nba_teams for year in years]
-    concurrent.futures.wait(futures)
+    # Convert lists of dictionaries to DataFrames
+    df_per_game = pd.DataFrame(all_per_game_data)
+    df_pbp = pd.DataFrame(all_pbp_data)
+    df_per_game_post = pd.DataFrame(all_per_game_data_post)
+    df_pbp_post = pd.DataFrame(all_pbp_data_post)
 
-# Convert lists of dictionaries to DataFrames
-df_per_game = pd.DataFrame(all_per_game_data)
-df_pbp = pd.DataFrame(all_pbp_data)
-df_per_game_post = pd.DataFrame(all_per_game_data_post)
-df_pbp_post = pd.DataFrame(all_pbp_data_post)
+    return df_per_game, df_pbp, df_per_game_post, df_pbp_post
 
 def merge_dataframes(df_per_game, df_pbp, df_per_game_post, df_pbp_post):
-# Merge DataFrames on Player Name and Year
+    # Merge DataFrames on Player Name and Year
     if not df_per_game.empty and not df_per_game_post.empty and not df_pbp.empty and not df_pbp_post.empty:
         df_combined = df_per_game.merge(df_per_game_post, on=['team', 'year', 'name'], how='left') \
                                 .merge(df_pbp, on=['team', 'year', 'name'], how='left') \
@@ -229,8 +221,20 @@ def merge_dataframes(df_per_game, df_pbp, df_per_game_post, df_pbp_post):
         # Export combined DataFrame to CSV
         df_combined.to_csv('nba_combined_stats.csv', index=False)
         print('Data scraping complete and saved to nba_combined_stats.csv')
+        return(df_combined)
     else:
         print('No data to merge. Check if tables were scraped correctly.')
-    return(df_combined)
 
-merge_dataframes(df_per_game, df_pbp, df_per_game_post, df_pbp_post)
+
+def main():
+    # Teams and years to scrape
+    nba_teams = ['ATL', 'BRK']  # Add more teams as needed
+    years = range(2023, 2025)
+
+    # Use ThreadPoolExecutor to scrape data concurrently
+    with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
+        futures = [executor.submit(scrape_team_year, team, year) for team in nba_teams for year in years]
+        concurrent.futures.wait(futures)
+
+if __name__ == '__main__':
+    main()
