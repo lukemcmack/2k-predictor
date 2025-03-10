@@ -1,88 +1,4 @@
 Player,Year,Rating,Team
-LeBron James,NBA 2K25,96,Los Angeles Lakers
-LeBron James,NBA 2K24,96,Los Angeles Lakers
-LeBron James,NBA 2K23,96,Los Angeles Lakers
-LeBron James,NBA 2K22,96,Los Angeles Lakers
-LeBron James,NBA 2K21,97,Los Angeles Lakers
-LeBron James,NBA 2K20,97,Los Angeles Lakers
-LeBron James,NBA 2K19,98,Los Angeles Lakers
-LeBron James,NBA 2K18,97,Cleveland Cavaliers
-LeBron James,NBA 2K17,96,Cleveland Cavaliers
-LeBron James,NBA 2K16,94,Cleveland Cavaliers
-LeBron James,NBA 2K15,98,Cleveland Cavaliers
-LeBron James,NBA 2K14,99,Miami Heat
-LeBron James,NBA 2K13,98,Miami Heat
-LeBron James,NBA 2K12,98,Miami Heat
-LeBron James,NBA 2K11,97,Miami Heat
-LeBron James,NBA 2K10,96,Cleveland Cavaliers
-LeBron James,NBA 2K9,99,Cleveland Cavaliers
-LeBron James,NBA 2K8,97,Cleveland Cavaliers
-LeBron James,NBA 2K7,98,Cleveland Cavaliers
-LeBron James,NBA 2K6,97,Cleveland Cavaliers
-LeBron James,NBA 2K5,88,Cleveland Cavaliers
-LeBron James,NBA 2K4,78,Cleveland Cavaliers
-Kevin Durant,NBA 2K25,93,Phoenix Suns
-Kevin Durant,NBA 2K24,96,Phoenix Suns
-Kevin Durant,NBA 2K23,96,"Brooklyn Nets, Phoenix Suns"
-Kevin Durant,NBA 2K22,96,Brooklyn Nets
-Kevin Durant,NBA 2K21,95,Brooklyn Nets
-Kevin Durant,NBA 2K20,96,Brooklyn Nets
-Kevin Durant,NBA 2K19,97,Golden State Warriors
-Kevin Durant,NBA 2K18,96,Golden State Warriors
-Kevin Durant,NBA 2K17,93,Golden State Warriors
-Kevin Durant,NBA 2K16,91,Oklahoma City Thunder
-Kevin Durant,NBA 2K15,95,Oklahoma City Thunder
-Kevin Durant,NBA 2K14,94,Oklahoma City Thunder
-Kevin Durant,NBA 2K13,94,Oklahoma City Thunder
-Kevin Durant,NBA 2K12,92,Oklahoma City Thunder
-Kevin Durant,NBA 2K11,91,Oklahoma City Thunder
-Kevin Durant,NBA 2K10,82,Oklahoma City Thunder
-Kevin Durant,NBA 2K9,83,Oklahoma City Thunder
-Kevin Durant,NBA 2K8,80,Seattle Supersonics
-clint-capela,NBA 2K25,80,Atlanta Hawks
-clint-capela,NBA 2K24,82,Atlanta Hawks
-clint-capela,NBA 2K23,84,Atlanta Hawks
-clint-capela,NBA 2K22,85,Atlanta Hawks
-clint-capela,NBA 2K21,86,Atlanta Hawks
-clint-capela,NBA 2K20,86,Houston Rockets
-clint-capela,NBA 2K19,87,Houston Rockets
-clint-capela,NBA 2K18,86,Houston Rockets
-clint-capela,NBA 2K17,79,Houston Rockets
-clint-capela,NBA 2K16,75,Houston Rockets
-clint-capela,NBA 2K15,65,Houston Rockets
-john-collins,NBA 2K25,85,Utah Jazz
-john-collins,NBA 2K24,80,Utah Jazz
-john-collins,NBA 2K23,83,Atlanta Hawks
-john-collins,NBA 2K22,83,Atlanta Hawks
-john-collins,NBA 2K21,85,Atlanta Hawks
-john-collins,NBA 2K20,86,Atlanta Hawks
-john-collins,NBA 2K19,84,Atlanta Hawks
-john-collins,NBA 2K18,78,Atlanta Hawks
-saddiq-bey,NBA 2K25,77,Washington Wizards
-saddiq-bey,NBA 2K24,78,Atlanta Hawks
-saddiq-bey,NBA 2K23,80,"Atlanta Hawks, Detroit Pistons"
-saddiq-bey,NBA 2K22,81,Detroit Pistons
-saddiq-bey,NBA 2K21,79,Detroit Pistons
-clint-capela,NBA 2K25,80,Atlanta Hawks
-clint-capela,NBA 2K24,82,Atlanta Hawks
-clint-capela,NBA 2K23,84,Atlanta Hawks
-clint-capela,NBA 2K22,85,Atlanta Hawks
-clint-capela,NBA 2K21,86,Atlanta Hawks
-clint-capela,NBA 2K20,86,Houston Rockets
-clint-capela,NBA 2K19,87,Houston Rockets
-clint-capela,NBA 2K18,86,Houston Rockets
-clint-capela,NBA 2K17,79,Houston Rockets
-clint-capela,NBA 2K16,75,Houston Rockets
-clint-capela,NBA 2K15,65,Houston Rockets
-dejounte-murray,NBA 2K25,84,New Orleans Pelicans
-dejounte-murray,NBA 2K24,84,Atlanta Hawks
-dejounte-murray,NBA 2K23,85,Atlanta Hawks
-dejounte-murray,NBA 2K22,87,San Antonio Spurs
-dejounte-murray,NBA 2K21,82,San Antonio Spurs
-dejounte-murray,NBA 2K20,81,San Antonio Spurs
-dejounte-murray,NBA 2K19,75,San Antonio Spurs
-dejounte-murray,NBA 2K18,72,San Antonio Spurs
-dejounte-murray,NBA 2K17,70,San Antonio Spurs
 john-collins,NBA 2K25,85,Utah Jazz
 john-collins,NBA 2K24,80,Utah Jazz
 john-collins,NBA 2K23,83,Atlanta Hawks
@@ -94,6 +10,31 @@ john-collins,NBA 2K18,78,Atlanta Hawks
 aj-griffin,NBA 2K25,72,Free Agent
 aj-griffin,NBA 2K24,76,Atlanta Hawks
 aj-griffin,NBA 2K23,73,Atlanta Hawks
+clint-capela,NBA 2K25,80,Atlanta Hawks
+clint-capela,NBA 2K24,82,Atlanta Hawks
+clint-capela,NBA 2K23,84,Atlanta Hawks
+clint-capela,NBA 2K22,85,Atlanta Hawks
+clint-capela,NBA 2K21,86,Atlanta Hawks
+clint-capela,NBA 2K20,86,Houston Rockets
+clint-capela,NBA 2K19,87,Houston Rockets
+clint-capela,NBA 2K18,86,Houston Rockets
+clint-capela,NBA 2K17,79,Houston Rockets
+clint-capela,NBA 2K16,75,Houston Rockets
+clint-capela,NBA 2K15,65,Houston Rockets
+saddiq-bey,NBA 2K25,77,Washington Wizards
+saddiq-bey,NBA 2K24,78,Atlanta Hawks
+saddiq-bey,NBA 2K23,80,"Atlanta Hawks, Detroit Pistons"
+saddiq-bey,NBA 2K22,81,Detroit Pistons
+saddiq-bey,NBA 2K21,79,Detroit Pistons
+dejounte-murray,NBA 2K25,84,New Orleans Pelicans
+dejounte-murray,NBA 2K24,84,Atlanta Hawks
+dejounte-murray,NBA 2K23,85,Atlanta Hawks
+dejounte-murray,NBA 2K22,87,San Antonio Spurs
+dejounte-murray,NBA 2K21,82,San Antonio Spurs
+dejounte-murray,NBA 2K20,81,San Antonio Spurs
+dejounte-murray,NBA 2K19,75,San Antonio Spurs
+dejounte-murray,NBA 2K18,72,San Antonio Spurs
+dejounte-murray,NBA 2K17,70,San Antonio Spurs
 de'andre-hunter,NBA 2K25,82,"Atlanta Hawks, Cleveland Cavaliers"
 de'andre-hunter,NBA 2K24,80,Atlanta Hawks
 de'andre-hunter,NBA 2K23,77,Atlanta Hawks
@@ -123,25 +64,25 @@ trent-forrest,NBA 2K24,70,Atlanta Hawks
 trent-forrest,NBA 2K23,71,Atlanta Hawks
 trent-forrest,NBA 2K22,71,Utah Jazz
 trent-forrest,NBA 2K21,69,Utah Jazz
-bruno-fernando,NBA 2K25,71,Free Agent
-bruno-fernando,NBA 2K24,74,Atlanta Hawks
-bruno-fernando,NBA 2K23,72,"Atlanta Hawks, Houston Rockets"
-bruno-fernando,NBA 2K22,73,"Boston Celtics, Houston Rockets"
-bruno-fernando,NBA 2K21,72,Atlanta Hawks
-bruno-fernando,NBA 2K20,75,Atlanta Hawks
 garrison-mathews,NBA 2K25,74,Atlanta Hawks
 garrison-mathews,NBA 2K24,70,Atlanta Hawks
 garrison-mathews,NBA 2K23,73,"Atlanta Hawks, Houston Rockets"
 garrison-mathews,NBA 2K22,74,Houston Rockets
 garrison-mathews,NBA 2K21,72,Washington Wizards
 garrison-mathews,NBA 2K20,72,Washington Wizards
-tyrese-martin,NBA 2K25,74,Brooklyn Nets
-tyrese-martin,NBA 2K24,69,Minnesota Timberwolves
-tyrese-martin,NBA 2K23,69,Atlanta Hawks
+bruno-fernando,NBA 2K25,71,Free Agent
+bruno-fernando,NBA 2K24,74,Atlanta Hawks
+bruno-fernando,NBA 2K23,72,"Atlanta Hawks, Houston Rockets"
+bruno-fernando,NBA 2K22,73,"Boston Celtics, Houston Rockets"
+bruno-fernando,NBA 2K21,72,Atlanta Hawks
+bruno-fernando,NBA 2K20,75,Atlanta Hawks
 vit-krejci,NBA 2K25,75,Atlanta Hawks
 vit-krejci,NBA 2K24,70,Atlanta Hawks
 vit-krejci,NBA 2K23,70,Atlanta Hawks
 vit-krejci,NBA 2K22,70,Oklahoma City Thunder
+tyrese-martin,NBA 2K25,74,Brooklyn Nets
+tyrese-martin,NBA 2K24,69,Minnesota Timberwolves
+tyrese-martin,NBA 2K23,69,Atlanta Hawks
 jrue-holiday,NBA 2K25,83,Boston Celtics
 jrue-holiday,NBA 2K24,87,Boston Celtics
 jrue-holiday,NBA 2K23,87,Milwaukee Bucks
@@ -202,14 +143,14 @@ oshae-brissett,NBA 2K23,75,Indiana Pacers
 oshae-brissett,NBA 2K22,76,Indiana Pacers
 oshae-brissett,NBA 2K21,76,Indiana Pacers
 oshae-brissett,NBA 2K20,67,Toronto Raptors
-dalano-banton,NBA 2K25,76,Portland Trail Blazers
-dalano-banton,NBA 2K24,73,"Boston Celtics, Portland Trail Blazers"
-dalano-banton,NBA 2K23,72,Toronto Raptors
-dalano-banton,NBA 2K22,72,Toronto Raptors
 jaden-springer,NBA 2K25,73,Utah Jazz
 jaden-springer,NBA 2K24,70,"Boston Celtics, Philadelphia 76ers"
 jaden-springer,NBA 2K23,70,Philadelphia 76ers
 jaden-springer,NBA 2K22,70,Philadelphia 76ers
+dalano-banton,NBA 2K25,76,Portland Trail Blazers
+dalano-banton,NBA 2K24,73,"Boston Celtics, Portland Trail Blazers"
+dalano-banton,NBA 2K23,72,Toronto Raptors
+dalano-banton,NBA 2K22,72,Toronto Raptors
 lamar-stevens,NBA 2K25,74,Memphis Grizzlies
 lamar-stevens,NBA 2K24,73,"Boston Celtics, Memphis Grizzlies"
 lamar-stevens,NBA 2K23,75,Cleveland Cavaliers
@@ -233,12 +174,6 @@ spencer-dinwiddie,NBA 2K18,78,Brooklyn Nets
 spencer-dinwiddie,NBA 2K17,73,Brooklyn Nets
 spencer-dinwiddie,NBA 2K16,68,Detroit Pistons
 spencer-dinwiddie,NBA 2K15,67,Detroit Pistons
-cameron-johnson,NBA 2K25,84,Brooklyn Nets
-cameron-johnson,NBA 2K24,81,Brooklyn Nets
-cameron-johnson,NBA 2K23,80,"Brooklyn Nets, Phoenix Suns"
-cameron-johnson,NBA 2K22,81,Phoenix Suns
-cameron-johnson,NBA 2K21,77,Phoenix Suns
-cameron-johnson,NBA 2K20,73,Phoenix Suns
 dorian-finney-smith,NBA 2K25,76,"Brooklyn Nets, Los Angeles Lakers"
 dorian-finney-smith,NBA 2K24,77,Brooklyn Nets
 dorian-finney-smith,NBA 2K23,78,"Brooklyn Nets, Dallas Mavericks"
@@ -256,6 +191,12 @@ royce-o'neale,NBA 2K21,73,Utah Jazz
 royce-o'neale,NBA 2K20,73,Utah Jazz
 royce-o'neale,NBA 2K19,73,Utah Jazz
 royce-o'neale,NBA 2K18,74,Utah Jazz
+cameron-johnson,NBA 2K25,84,Brooklyn Nets
+cameron-johnson,NBA 2K24,81,Brooklyn Nets
+cameron-johnson,NBA 2K23,80,"Brooklyn Nets, Phoenix Suns"
+cameron-johnson,NBA 2K22,81,Phoenix Suns
+cameron-johnson,NBA 2K21,77,Phoenix Suns
+cameron-johnson,NBA 2K20,73,Phoenix Suns
 ben-simmons,NBA 2K25,78,"Brooklyn Nets, Los Angeles Clippers"
 ben-simmons,NBA 2K24,76,Brooklyn Nets
 ben-simmons,NBA 2K23,73,Brooklyn Nets
@@ -296,13 +237,6 @@ armoni-brooks,NBA 2K21,69,Houston Rockets
 jacob-gilyard,NBA 2K25,71,Free Agent
 jacob-gilyard,NBA 2K24,69,"Brooklyn Nets, Memphis Grizzlies"
 jacob-gilyard,NBA 2K23,69,Memphis Grizzlies
-keita-bates-diop,NBA 2K25,72,Free Agent
-keita-bates-diop,NBA 2K24,75,"Brooklyn Nets, Phoenix Suns"
-keita-bates-diop,NBA 2K23,74,San Antonio Spurs
-keita-bates-diop,NBA 2K22,75,San Antonio Spurs
-keita-bates-diop,NBA 2K21,72,San Antonio Spurs
-keita-bates-diop,NBA 2K20,72,"Denver Nuggets, Minnesota Timberwolves"
-keita-bates-diop,NBA 2K19,69,Minnesota Timberwolves
 harry-giles,NBA 2K25,69,Free Agent
 harry-giles,NBA 2K24,70,"Brooklyn Nets, Los Angeles Lakers"
 harry-giles,NBA 2K23,71,Free Agent
@@ -311,6 +245,13 @@ harry-giles,NBA 2K21,73,Portland Trail Blazers
 harry-giles,NBA 2K20,77,Sacramento Kings
 harry-giles,NBA 2K19,74,Sacramento Kings
 harry-giles,NBA 2K18,70,Sacramento Kings
+keita-bates-diop,NBA 2K25,72,Free Agent
+keita-bates-diop,NBA 2K24,75,"Brooklyn Nets, Phoenix Suns"
+keita-bates-diop,NBA 2K23,74,San Antonio Spurs
+keita-bates-diop,NBA 2K22,75,San Antonio Spurs
+keita-bates-diop,NBA 2K21,72,San Antonio Spurs
+keita-bates-diop,NBA 2K20,72,"Denver Nuggets, Minnesota Timberwolves"
+keita-bates-diop,NBA 2K19,69,Minnesota Timberwolves
 kyrie-irving,NBA 2K25,92,Dallas Mavericks
 kyrie-irving,NBA 2K24,90,Dallas Mavericks
 kyrie-irving,NBA 2K23,89,"Brooklyn Nets, Dallas Mavericks"
@@ -325,6 +266,9 @@ kyrie-irving,NBA 2K15,86,Cleveland Cavaliers
 kyrie-irving,NBA 2K14,89,Cleveland Cavaliers
 kyrie-irving,NBA 2K13,83,Cleveland Cavaliers
 kyrie-irving,NBA 2K12,81,Cleveland Cavaliers
+raiquan-gray,NBA 2K25,69,Free Agent
+raiquan-gray,NBA 2K24,69,San Antonio Spurs
+raiquan-gray,NBA 2K23,69,Brooklyn Nets
 kevin-durant,NBA 2K25,93,Phoenix Suns
 kevin-durant,NBA 2K24,96,Phoenix Suns
 kevin-durant,NBA 2K23,96,"Brooklyn Nets, Phoenix Suns"
@@ -343,9 +287,6 @@ kevin-durant,NBA 2K11,91,Oklahoma City Thunder
 kevin-durant,NBA 2K10,82,Oklahoma City Thunder
 kevin-durant,NBA 2K9,83,Oklahoma City Thunder
 kevin-durant,NBA 2K8,80,Seattle Supersonics
-raiquan-gray,NBA 2K25,69,Free Agent
-raiquan-gray,NBA 2K24,69,San Antonio Spurs
-raiquan-gray,NBA 2K23,69,Brooklyn Nets
 joe-harris,NBA 2K25,74,Free Agent
 joe-harris,NBA 2K24,76,Free Agent
 joe-harris,NBA 2K23,76,Brooklyn Nets
@@ -454,17 +395,6 @@ wesley-matthews,NBA 2K13,77,Portland Trail Blazers
 wesley-matthews,NBA 2K12,74,Portland Trail Blazers
 wesley-matthews,NBA 2K11,77,Portland Trail Blazers
 wesley-matthews,NBA 2K10,67,Utah Jazz
-marcus-smart,NBA 2K25,80,"Memphis Grizzlies, Washington Wizards"
-marcus-smart,NBA 2K24,82,Memphis Grizzlies
-marcus-smart,NBA 2K23,82,Boston Celtics
-marcus-smart,NBA 2K22,79,Boston Celtics
-marcus-smart,NBA 2K21,79,Boston Celtics
-marcus-smart,NBA 2K20,80,Boston Celtics
-marcus-smart,NBA 2K19,79,Boston Celtics
-marcus-smart,NBA 2K18,80,Boston Celtics
-marcus-smart,NBA 2K17,76,Boston Celtics
-marcus-smart,NBA 2K16,74,Boston Celtics
-marcus-smart,NBA 2K15,74,Boston Celtics
 seth-lundy,NBA 2K25,68,Free Agent
 seth-lundy,NBA 2K24,68,Atlanta Hawks
 malcolm-brogdon,NBA 2K25,79,Washington Wizards
@@ -476,6 +406,17 @@ malcolm-brogdon,NBA 2K20,83,Indiana Pacers
 malcolm-brogdon,NBA 2K19,83,Milwaukee Bucks
 malcolm-brogdon,NBA 2K18,79,Milwaukee Bucks
 malcolm-brogdon,NBA 2K17,76,Milwaukee Bucks
+marcus-smart,NBA 2K25,80,"Memphis Grizzlies, Washington Wizards"
+marcus-smart,NBA 2K24,82,Memphis Grizzlies
+marcus-smart,NBA 2K23,82,Boston Celtics
+marcus-smart,NBA 2K22,79,Boston Celtics
+marcus-smart,NBA 2K21,79,Boston Celtics
+marcus-smart,NBA 2K20,80,Boston Celtics
+marcus-smart,NBA 2K19,79,Boston Celtics
+marcus-smart,NBA 2K18,80,Boston Celtics
+marcus-smart,NBA 2K17,76,Boston Celtics
+marcus-smart,NBA 2K16,74,Boston Celtics
+marcus-smart,NBA 2K15,74,Boston Celtics
 grant-williams,NBA 2K25,76,Charlotte Hornets
 grant-williams,NBA 2K24,78,"Charlotte Hornets, Dallas Mavericks"
 grant-williams,NBA 2K23,77,Boston Celtics
@@ -493,6 +434,14 @@ justin-champagnie,NBA 2K25,76,Washington Wizards
 justin-champagnie,NBA 2K24,70,Washington Wizards
 justin-champagnie,NBA 2K23,70,"Boston Celtics, Toronto Raptors"
 justin-champagnie,NBA 2K22,69,Toronto Raptors
+justin-jackson,NBA 2K25,70,Free Agent
+justin-jackson,NBA 2K24,72,Free Agent
+justin-jackson,NBA 2K23,72,Boston Celtics
+justin-jackson,NBA 2K22,72,"Boston Celtics, Phoenix Suns"
+justin-jackson,NBA 2K21,74,"Milwaukee Bucks, Oklahoma City Thunder"
+justin-jackson,NBA 2K20,73,Dallas Mavericks
+justin-jackson,NBA 2K19,74,"Dallas Mavericks, Sacramento Kings"
+justin-jackson,NBA 2K18,71,Sacramento Kings
 james-harden,NBA 2K25,88,Los Angeles Clippers
 james-harden,NBA 2K24,89,Los Angeles Clippers
 james-harden,NBA 2K23,89,Philadelphia 76ers
@@ -509,14 +458,6 @@ james-harden,NBA 2K13,81,Houston Rockets
 james-harden,NBA 2K12,74,Oklahoma City Thunder
 james-harden,NBA 2K11,74,Oklahoma City Thunder
 james-harden,NBA 2K10,76,Oklahoma City Thunder
-justin-jackson,NBA 2K25,70,Free Agent
-justin-jackson,NBA 2K24,72,Free Agent
-justin-jackson,NBA 2K23,72,Boston Celtics
-justin-jackson,NBA 2K22,72,"Boston Celtics, Phoenix Suns"
-justin-jackson,NBA 2K21,74,"Milwaukee Bucks, Oklahoma City Thunder"
-justin-jackson,NBA 2K20,73,Dallas Mavericks
-justin-jackson,NBA 2K19,74,"Dallas Mavericks, Sacramento Kings"
-justin-jackson,NBA 2K18,71,Sacramento Kings
 bruce-brown,NBA 2K25,76,"New Orleans Pelicans, Toronto Raptors"
 bruce-brown,NBA 2K24,80,"Indiana Pacers, Toronto Raptors"
 bruce-brown,NBA 2K23,76,Denver Nuggets
@@ -553,13 +494,6 @@ james-johnson,NBA 2K13,67,Sacramento Kings
 james-johnson,NBA 2K12,63,Toronto Raptors
 james-johnson,NBA 2K11,74,"Chicago Bulls, Toronto Raptors"
 james-johnson,NBA 2K10,63,Chicago Bulls
-jevon-carter,NBA 2K25,74,Chicago Bulls
-jevon-carter,NBA 2K24,75,Chicago Bulls
-jevon-carter,NBA 2K23,74,Milwaukee Bucks
-jevon-carter,NBA 2K22,73,"Brooklyn Nets, Milwaukee Bucks"
-jevon-carter,NBA 2K21,74,Phoenix Suns
-jevon-carter,NBA 2K20,72,Phoenix Suns
-jevon-carter,NBA 2K19,70,Memphis Grizzlies
 shaquille-harrison,NBA 2K25,69,Free Agent
 shaquille-harrison,NBA 2K24,69,Free Agent
 shaquille-harrison,NBA 2K23,69,Portland Trail Blazers
@@ -592,6 +526,13 @@ daniel-theis,NBA 2K21,77,"Boston Celtics, Chicago Bulls"
 daniel-theis,NBA 2K20,80,Boston Celtics
 daniel-theis,NBA 2K19,76,Boston Celtics
 daniel-theis,NBA 2K18,71,Boston Celtics
+jevon-carter,NBA 2K25,74,Chicago Bulls
+jevon-carter,NBA 2K24,75,Chicago Bulls
+jevon-carter,NBA 2K23,74,Milwaukee Bucks
+jevon-carter,NBA 2K22,73,"Brooklyn Nets, Milwaukee Bucks"
+jevon-carter,NBA 2K21,74,Phoenix Suns
+jevon-carter,NBA 2K20,72,Phoenix Suns
+jevon-carter,NBA 2K19,70,Memphis Grizzlies
 aaron-nesmith,NBA 2K25,79,Indiana Pacers
 aaron-nesmith,NBA 2K24,76,Indiana Pacers
 aaron-nesmith,NBA 2K23,71,Indiana Pacers
@@ -639,11 +580,6 @@ malcolm-hill,NBA 2K25,68,Free Agent
 malcolm-hill,NBA 2K24,68,New Orleans Pelicans
 malcolm-hill,NBA 2K23,69,Chicago Bulls
 malcolm-hill,NBA 2K22,69,"Atlanta Hawks, Chicago Bulls"
-skylar-mays,NBA 2K25,71,Free Agent
-skylar-mays,NBA 2K24,70,"Los Angeles Lakers, Portland Trail Blazers"
-skylar-mays,NBA 2K23,72,Portland Trail Blazers
-skylar-mays,NBA 2K22,73,Atlanta Hawks
-skylar-mays,NBA 2K21,71,Atlanta Hawks
 kevin-knox,NBA 2K25,72,Golden State Warriors
 kevin-knox,NBA 2K24,70,Free Agent
 kevin-knox,NBA 2K23,71,"Detroit Pistons, Portland Trail Blazers"
@@ -651,20 +587,12 @@ kevin-knox,NBA 2K22,71,"Atlanta Hawks, New York Knicks"
 kevin-knox,NBA 2K21,72,New York Knicks
 kevin-knox,NBA 2K20,72,New York Knicks
 kevin-knox,NBA 2K19,70,New York Knicks
+skylar-mays,NBA 2K25,71,Free Agent
+skylar-mays,NBA 2K24,70,"Los Angeles Lakers, Portland Trail Blazers"
+skylar-mays,NBA 2K23,72,Portland Trail Blazers
+skylar-mays,NBA 2K22,73,Atlanta Hawks
+skylar-mays,NBA 2K21,71,Atlanta Hawks
 sharife-cooper,NBA 2K25,71,Free Agent
 sharife-cooper,NBA 2K24,71,Free Agent
 sharife-cooper,NBA 2K23,71,Cleveland Cavaliers
 sharife-cooper,NBA 2K22,71,Atlanta Hawks
-anthony-davis,NBA 2K25,95,"Dallas Mavericks, Los Angeles Lakers",N/A
-anthony-davis,NBA 2K24,93,Los Angeles Lakers,N/A
-anthony-davis,NBA 2K23,90,Los Angeles Lakers,N/A
-anthony-davis,NBA 2K22,93,Los Angeles Lakers,N/A
-anthony-davis,NBA 2K21,95,Los Angeles Lakers,N/A
-anthony-davis,NBA 2K20,94,Los Angeles Lakers,N/A
-anthony-davis,NBA 2K19,94,New Orleans Pelicans,N/A
-anthony-davis,NBA 2K18,94,New Orleans Pelicans,N/A
-anthony-davis,NBA 2K17,90,New Orleans Pelicans,N/A
-anthony-davis,NBA 2K16,92,New Orleans Pelicans,N/A
-anthony-davis,NBA 2K15,88,New Orleans Pelicans,N/A
-anthony-davis,NBA 2K14,88,New Orleans Pelicans,N/A
-anthony-davis,NBA 2K13,79,New Orleans Hornets,N/A

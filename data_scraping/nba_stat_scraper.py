@@ -9,13 +9,11 @@ import pandas as pd
 import concurrent.futures
 import threading
 
-# Teams and years to scrape
-## (2012-2013 onward) BRK = NJN  = Nets; CHA = (2014-15 onwards)CHO = Bobcats; NOP = NOH = Pelicans
-nba_teams = ['ATL', 'BRK','BOS', 'NJN', 'CHA', 'CHI', 'CHO', 'CLE', 'DET', 'IND', 'MIA', 'MIL'
-             'NYK', 'ORL', 'PHI', 'TOR', 'WAS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 
-             'LAL', 'MEM', 'MIN', 'NOP', 'NOH', 'OKC', 'PHO', 'POR', 'SAC', 'SAS', 'UTA']
+nba_teams = ['ATL', 'BRK']#,'BOS', 'NJN' 'CHA', 'CHI', 'CHO', 'CLE', 'DET', 'IND', 'MIA', 'MIL'
+             #'NYK', 'ORL', 'PHI', 'TOR', 'WAS', 'DAL', 'DEN', 'GSW', 'HOU', 'LAC', 
+             #'LAL', 'MEM', 'MIN', 'NOP', 'NOH', 'OKC', 'PHO', 'POR', 'SAC', 'SAS', 'UTA']
 
-years = range(2022, 2025)
+years = range(2025, 2025)
 
 all_per_game_data = []
 all_per_game_data_post = []
@@ -216,10 +214,6 @@ df_per_game = pd.DataFrame(all_per_game_data)
 df_pbp = pd.DataFrame(all_pbp_data)
 df_per_game_post = pd.DataFrame(all_per_game_data_post)
 df_pbp_post = pd.DataFrame(all_pbp_data_post)
-
-# Debugging: Print columns of both DataFrames
-print('Per Game Stats Columns:', df_per_game.columns.tolist())
-print('PBP Stats Columns:', df_pbp.columns.tolist())
 
 def merge_dataframes(df_per_game, df_pbp, df_per_game_post, df_pbp_post):
 # Merge DataFrames on Player Name and Year
