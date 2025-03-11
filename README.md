@@ -6,7 +6,7 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 
 <h2 align="center">The Data</h2>
 <h3 align="left">Sources</h3>
-Our real-life NBA season statistics are taken from <a href="https://www.basketball-reference.com">basketball-reference.com</a>.
+Our real-life NBA season statistics are taken from <a href="https://www.basketball-reference.com">basketball-reference.com</a>. <br>
 Our 2K rating statistics are start-of-season ratings (since the 2K games update their overalls throughout their 1-year live service period) taken from <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype</a>, a subsidiary of USA Today Sports.
 
 <h3 align="left">Collection Methodology</h3>
