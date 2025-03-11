@@ -10,19 +10,19 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 - Our 2K rating statistics are start-of-season ratings (since the 2K games update their overalls throughout their 1-year live service period) taken from <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype</a>, a subsidiary of USA Today Sports.
 
 <h3 align="left">Features</h3>
-- <b>Age</b>: The player's age at the end of the season.
-- <b>Games Played</b>: The number of games during the season where the player played >0 minutes
-- <b>Position</b>: A categorical variable indicating the players position: {PG, SG, SF, PF, C}
-- <b>Minutes Per Game</b>: The number of minutes the player had per game played
-- <b>Points Per Game</b>: The number of points the player scored per game
-- <b>Field Goal Percentage</b>: The total percentage of shots made over shots attempted
-- <b>3-Point Attempts Per Game</b>: The number of 3-pointers the player attempted per game played
-- <b>3-Point Percentage</b>: The total percentage of 3-pointers made over 3-pointers attempted
-- <b>Rebounds Per Game</b>: The number of rebounds, offensive and defensive, the player made per game
-- <b>Assists Per Game</b>: The number of scoring assists the player made per game
-- <b>Steals Per Game</b>: The number of steals the player made per game
-- <b>Blocks Per Game</b>: The number of blocks the player made per game
-- <b>Turnovers Per Game</b>: The number of turnovers 
+- <b>Age</b>: The player's age at the end of the season. <br>
+- <b>Games Played</b>: The number of games during the season where the player played >0 minutes<br>
+- <b>Position</b>: A categorical variable indicating the players position: {PG, SG, SF, PF, C}<br>
+- <b>Minutes Per Game</b>: The number of minutes the player had per game played<br>
+- <b>Points Per Game</b>: The number of points the player scored per game<br>
+- <b>Field Goal Percentage</b>: The total percentage of shots made over shots attempted<br>
+- <b>3-Point Attempts Per Game</b>: The number of 3-pointers the player attempted per game played<br>
+- <b>3-Point Percentage</b>: The total percentage of 3-pointers made over 3-pointers attempted<br>
+- <b>Rebounds Per Game</b>: The number of rebounds, offensive and defensive, the player made per game<br>
+- <b>Assists Per Game</b>: The number of scoring assists the player made per game<br>
+- <b>Steals Per Game</b>: The number of steals the player made per game<br>
+- <b>Blocks Per Game</b>: The number of blocks the player made per game<br>
+- <b>Turnovers Per Game</b>: The number of turnovers
 
 
 <h3 align="left">Collection Methodology</h3>
