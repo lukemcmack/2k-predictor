@@ -8,15 +8,12 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import concurrent.futures
 import threading
+import csv
 
-def scrape_team_year(team, year):
-    all_per_game_data = []
-    all_per_game_data_post = []
-    all_pbp_data = []
-    all_pbp_data_post = []
+# Global lock for thread safety
+lock = threading.Lock()
 
-    lock = threading.Lock()
-
+def scrape_team_year(team, year, all_per_game_data, all_per_game_data_post, all_pbp_data, all_pbp_data_post):
     options = Options()
     options.add_argument('--headless')  # Run Firefox in headless mode
     service = Service('geckodriver')
@@ -29,8 +26,7 @@ def scrape_team_year(team, year):
     # Wait for the page to load completely
     try:
         WebDriverWait(driver, 2).until(
-            EC.presence_of_element_located((By.ID, 'per_game_stats'))
-        )
+            EC.presence_of_element_located((By.ID, 'per_game_stats')))
     except Exception as e:
         print(f'Failed to load page for {team} {year}: {e}')
         driver.quit()
@@ -199,15 +195,13 @@ def scrape_team_year(team, year):
     # Quit the WebDriver
     driver.quit()
 
+def merge_dataframes(all_per_game_data, all_per_game_data_post, all_pbp_data, all_pbp_data_post):
     # Convert lists of dictionaries to DataFrames
     df_per_game = pd.DataFrame(all_per_game_data)
     df_pbp = pd.DataFrame(all_pbp_data)
     df_per_game_post = pd.DataFrame(all_per_game_data_post)
     df_pbp_post = pd.DataFrame(all_pbp_data_post)
 
-    return df_per_game, df_pbp, df_per_game_post, df_pbp_post
-
-def merge_dataframes(df_per_game, df_pbp, df_per_game_post, df_pbp_post):
     # Merge DataFrames on Player Name and Year
     if not df_per_game.empty and not df_per_game_post.empty and not df_pbp.empty and not df_pbp_post.empty:
         df_combined = df_per_game.merge(df_per_game_post, on=['team', 'year', 'name'], how='left') \
@@ -221,20 +215,29 @@ def merge_dataframes(df_per_game, df_pbp, df_per_game_post, df_pbp_post):
         # Export combined DataFrame to CSV
         df_combined.to_csv('nba_combined_stats.csv', index=False)
         print('Data scraping complete and saved to nba_combined_stats.csv')
-        return(df_combined)
+        return df_combined
     else:
         print('No data to merge. Check if tables were scraped correctly.')
-
+        return None
 
 def main():
+    all_per_game_data = []
+    all_per_game_data_post = []
+    all_pbp_data = []
+    all_pbp_data_post = []
+    
     # Teams and years to scrape
     nba_teams = ['ATL', 'BRK']  # Add more teams as needed
     years = range(2023, 2025)
 
     # Use ThreadPoolExecutor to scrape data concurrently
     with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-        futures = [executor.submit(scrape_team_year, team, year) for team in nba_teams for year in years]
+        futures = [executor.submit(scrape_team_year, team, year, all_per_game_data, all_per_game_data_post, all_pbp_data, all_pbp_data_post) 
+                   for team in nba_teams for year in years]
         concurrent.futures.wait(futures)
+
+    # Merge and save data after all threads are done
+    merge_dataframes(all_per_game_data, all_per_game_data_post, all_pbp_data, all_pbp_data_post)
 
 if __name__ == '__main__':
     main()
