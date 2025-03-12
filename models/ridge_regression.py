@@ -1,11 +1,11 @@
 import os
 import pandas as pd
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import OneHotEncoder, PolynomialFeatures
-from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 
@@ -46,28 +46,35 @@ X = X.fillna(0)
 
 X_train, X_test, y_train, y_test= train_test_split(X, y, random_state=42)
 
-model = make_pipeline(
+base_model = make_pipeline(
     ColumnTransformer(
         [
             ("cat_vars", OneHotEncoder(drop="first"), CAT_VARS),
-            ("num_vars", make_pipeline(PolynomialFeatures(degree = 2, include_bias = False)), NUM_VARS)
+            ("num_vars", "passthrough", NUM_VARS)
         ],
         remainder="drop"
     ),
-    LinearRegression()
+    Ridge(alpha = 1.0)
 )
 
-model.fit(X_train, y_train)
+param_grid = {"ridge__alpha": [0.01, 0.1, 1, 10, 100]}
 
-feature_names = model.named_steps['columntransformer'].get_feature_names_out()
-coefs = model.named_steps['linearregression'].coef_.flatten()
+grid_search = GridSearchCV(base_model, param_grid, cv = 5, scoring = "neg_mean_squared_error", n_jobs = -1)
+grid_search.fit(X_train, y_train)
 
-print("\nCoefficients:")
+best_model = grid_search.best_estimator_
+best_alpha = grid_search.best_params_["ridge__alpha"]
+print(f"\nBest alpha: {best_alpha}")
+
+y_hat_train = best_model.predict(X_train)
+y_hat_test = best_model.predict(X_test)
+
+feature_names = best_model.named_steps["columntransformer"].get_feature_names_out()
+coefs = best_model.named_steps["ridge"].coef_.flatten()
+
+print("\nFeature Coefficients:")
 for name, coef in zip(feature_names, coefs):
     print(f"{name}: {coef}")
-
-y_hat_train= model.predict(X_train)
-y_hat_test = model.predict(X_test)
 
 train_mse = mean_squared_error(y_train, y_hat_train)
 train_mae = mean_absolute_error(y_train, y_hat_train)
