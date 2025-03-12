@@ -1,17 +1,17 @@
+import os
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
-
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import OneHotEncoder, PolynomialFeatures
 from sklearn.linear_model import LinearRegression
-
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 
 # Only loading data up to 2024.
-file_path = r".\data_scraping/data_v2/nba_2k_cleaned_final.csv"
+data_path = "data_scraping"
+file_path = os.path.join(data_path, "data_v2", "nba_2k_cleaned_final.csv")
 df = pd.read_csv(file_path)
 df = df[df["year"] <= 2024]
 df = df.drop_duplicates(subset=["name", "year"], keep="first")
