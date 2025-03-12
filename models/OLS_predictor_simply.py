@@ -4,10 +4,9 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import OneHotEncoder, PolynomialFeatures
+from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-
 
 # Only loading data up to 2024.
 data_path = "data_scraping"
@@ -61,6 +60,8 @@ model.fit(X_train, y_train)
 
 feature_names = model.named_steps['columntransformer'].get_feature_names_out()
 coefs = model.named_steps['linearregression'].coef_.flatten()
+
+print("\nCoefficients:")
 for name, coef in zip(feature_names, coefs):
     print(f"{name}: {coef}")
 
