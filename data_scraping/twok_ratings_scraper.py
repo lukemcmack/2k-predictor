@@ -15,10 +15,10 @@ import threading
 # Global lock for thread-safe file writing
 lock = threading.Lock()
 
-# Function to convert player name to slug format ('firstname-lastname')
+# Function to convert player name to slug format ("firstname-lastname")
 def format_player_name(name):
-    name = unicodedata.normalize('NFKD', name).encode('ascii', 'ignore').decode('utf-8')
-    name = name.lower().replace(" ", "-").replace(".", "").replace("'", "")
+    name = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode("utf-8")
+    name = name.lower().replace(" ", "-").replace(".", "")
     return name
 
 # Helper function to extract height and wingspan from <p> tags
@@ -41,8 +41,8 @@ def extract_height_wingspan(soup):
 # Function to scrape ratings, height, and wingspan for each player
 def scrape_2k_data(player):
     options = Options()
-    options.add_argument('--headless')  # Run Firefox in headless mode
-    service = Service('geckodriver')
+    options.add_argument("--headless")  # Run Firefox in headless mode
+    service = Service("geckodriver")
     driver = webdriver.Firefox(service=service, options=options)
     
     url = f"https://www.2kratings.com/{player}"
@@ -117,8 +117,8 @@ def scrape_players(players):
 # Main function
 def main():
     # Read the player names from CSV
-    df = pd.read_csv('nba_combined_stats.csv')
-    player_names = df['name'].drop_duplicates()
+    df = pd.read_csv("nba_combined_stats.csv")
+    player_names = df["name"].drop_duplicates()
 
     player_slugs = player_names.apply(format_player_name).tolist()
 
