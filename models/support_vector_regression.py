@@ -8,8 +8,6 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.svm import SVR
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-
-# Only loading data up to 2024.
 data_path = "data_scraping"
 file_path = os.path.join(data_path, "data_v2", "nba_2k_cleaned_final.csv")
 df = pd.read_csv(file_path)
@@ -19,49 +17,78 @@ df = df.sort_values(by=["name", "year"])
 
 df["agesq"] = df["age"] ** 2
 
-# Create a feature for previous rating / fill missing previous ratings with 0.
 df["previous_rating"] = df.groupby("name")["rating"].shift(1)
 df["has_previous_rating"] = df["previous_rating"].notna().astype(int)
 df["previous_rating"] = df["previous_rating"].fillna(0)
 
-NUM_VARS = ["age","agesq","games","minutes_played_per_game",
-            "field_goal_percentage","three_point_field_goal_attempts_per_game",
-            "three_point_field_goal_percentage","total_rebounds_per_game","assists_per_game","steals_per_game",
-            "blocks_per_game","turnovers_per_game","points_per_game","previous_rating", "has_previous_rating", "AS",
-            "MVP","DPOY"]
+NUM_VARS = [
+    "age",
+    "agesq",
+    "games",
+    "minutes_played_per_game",
+    "field_goal_percentage",
+    "three_point_field_goal_attempts_per_game",
+    "three_point_field_goal_percentage",
+    "total_rebounds_per_game",
+    "assists_per_game",
+    "steals_per_game",
+    "blocks_per_game",
+    "turnovers_per_game",
+    "points_per_game",
+    "previous_rating",
+    "has_previous_rating",
+    "AS",
+    "MVP",
+    "DPOY",
+]
 
 CAT_VARS = ["position"]
 
-X = df[[
-    "age", "agesq","games", "minutes_played_per_game", "field_goal_percentage",
-    "three_point_field_goal_attempts_per_game", "three_point_field_goal_percentage",
-    "total_rebounds_per_game", "assists_per_game", "steals_per_game",
-    "blocks_per_game", "turnovers_per_game", "points_per_game",
-    "previous_rating", "has_previous_rating", "position", "AS","MVP","DPOY"
-]]
+X = df[
+    [
+        "age",
+        "agesq",
+        "games",
+        "minutes_played_per_game",
+        "field_goal_percentage",
+        "three_point_field_goal_attempts_per_game",
+        "three_point_field_goal_percentage",
+        "total_rebounds_per_game",
+        "assists_per_game",
+        "steals_per_game",
+        "blocks_per_game",
+        "turnovers_per_game",
+        "points_per_game",
+        "previous_rating",
+        "has_previous_rating",
+        "position",
+        "AS",
+        "MVP",
+        "DPOY",
+    ]
+]
 y = df["rating"]
 
 X = X.fillna(0)
 
-X_train, X_test, y_train, y_test= train_test_split(X, y, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
 
 base_model = make_pipeline(
     ColumnTransformer(
         [
             ("cat_vars", OneHotEncoder(drop="first"), CAT_VARS),
-            ("num_vars", make_pipeline(StandardScaler()), NUM_VARS)
+            ("num_vars", make_pipeline(StandardScaler()), NUM_VARS),
         ],
-        remainder="drop"
+        remainder="drop",
     ),
-    SVR()
+    SVR(),
 )
 
-param_grid = {
-    "svr__C": [0.1, 1, 10],
-    "svr__epsilon": [0.01, 0.1, 1]
-}
+param_grid = {"svr__C": [0.1, 1, 10], "svr__epsilon": [0.01, 0.1, 1]}
 
-grid_search = GridSearchCV(base_model, param_grid, cv=5, scoring="neg_mean_squared_error", n_jobs=-1)
+grid_search = GridSearchCV(
+    base_model, param_grid, cv=5, scoring="neg_mean_squared_error", n_jobs=-1
+)
 grid_search.fit(X_train, y_train)
 
 best_model = grid_search.best_estimator_

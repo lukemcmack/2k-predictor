@@ -14,36 +14,30 @@ lock = threading.Lock()
 
 player_data_dict = {}
 
+
 def scrape_team_year(team, year):
     global player_data_dict
 
     options = Options()
     options.add_argument("--headless")
-    service = Service("geckodriver") ## Ensure you are in the data_scraping folder when running or you'll get an error!
+    service = Service("geckodriver")
     driver = webdriver.Firefox(service=service, options=options)
 
     url = f"https://www.basketball-reference.com/teams/{team}/{year}.html"
     print(f"Accessing URL: {url}")
     driver.get(url)
 
-    
     try:
         WebDriverWait(driver, 1).until(
-            EC.presence_of_element_located((By.ID, "per_game_stats")))
+            EC.presence_of_element_located((By.ID, "per_game_stats"))
+        )
     except Exception as e:
         print(f"Failed to load page for {team} {year}: {e}")
         driver.quit()
-        return {
-            "team": team,
-            "year": year,
-            "wins": None,
-            "losses": None
-        }
+        return {"team": team, "year": year, "wins": None, "losses": None}
 
-    
     soup = BeautifulSoup(driver.page_source, "html.parser")
 
-    # Helper function to update player data
     def update_player_data(player_key, new_data):
         with lock:
             if player_key in player_data_dict:
@@ -51,10 +45,9 @@ def scrape_team_year(team, year):
             else:
                 player_data_dict[player_key] = new_data
 
-    # Scrape Per Game Stats
     per_game_table = soup.find("table", id="per_game_stats")
     if per_game_table:
-        rows = per_game_table.find_all("tr")[1:]  # Skip the header row
+        rows = per_game_table.find_all("tr")[1:]
         for row in rows:
             if not row.find("td", {"data-stat": "name_display"}):
                 continue
@@ -91,16 +84,15 @@ def scrape_team_year(team, year):
                 "turnovers_per_game": cols[26].text.strip(),
                 "personal_fouls_per_game": cols[27].text.strip(),
                 "points_per_game": cols[28].text.strip(),
-                "awards": cols[29].text.strip()
+                "awards": cols[29].text.strip(),
             }
             update_player_data(player_key, player_data)
     else:
         print(f"No Per Game table found for {team} {year}")
 
-    # Scrape Play-by-Play Stats
     pbp_table = soup.find("table", id="pbp_stats")
     if pbp_table:
-        rows = pbp_table.find_all("tr")[1:]  # Skip the header row
+        rows = pbp_table.find_all("tr")[1:]
         for row in rows:
             if not row.find("td", {"data-stat": "name_display"}):
                 continue
@@ -121,23 +113,21 @@ def scrape_team_year(team, year):
                 "shooting_fouls_drawn": cols[18].text.strip(),
                 "offensive_fouls_drawn": cols[19].text.strip(),
                 "points_generated_by_assists": cols[20].text.strip(),
-                "and1s": cols[21].text.strip()
+                "and1s": cols[21].text.strip(),
             }
             update_player_data(player_key, pbp_data)
     else:
         print(f"No PBP table found for {team} {year}")
 
-    # Scrape height and experience from roster table
     roster_table = soup.find("table", id="roster")
     if roster_table:
         rows = roster_table.find_all("tr")[1:]
         for row in rows:
             cols = row.find_all(["th", "td"])
             player_name = cols[1].text.strip()
-            height_ft_in = cols[3].text.strip()  # Height in feet-inches (e.g., "6-11")
+            height_ft_in = cols[3].text.strip()
             exp = cols[7].text.strip()
 
-            # Convert height from feet-inches to inches
             height_inches = None
             if "-" in height_ft_in:
                 try:
@@ -146,18 +136,18 @@ def scrape_team_year(team, year):
                 except ValueError:
                     print(f"Invalid height format for {player_name}: {height_ft_in}")
 
-            # Update player data with height and experience
             player_key = (team, year, player_name)
-            player_data = {
-                "height_inches": height_inches,
-                "experience": exp
-            }
+            player_data = {"height_inches": height_inches, "experience": exp}
             update_player_data(player_key, player_data)
 
-    # Scrape Team Record
     record_tag = soup.find("strong", string="Record:")
     if record_tag:
-        record_text = record_tag.find_parent("p").get_text(strip=True).replace("Record:", "").strip()
+        record_text = (
+            record_tag.find_parent("p")
+            .get_text(strip=True)
+            .replace("Record:", "")
+            .strip()
+        )
         wins_losses = record_text.split(",")[0].strip()
         if "-" in wins_losses:
             wins, losses = wins_losses.split("-")
@@ -165,66 +155,64 @@ def scrape_team_year(team, year):
                 "team": team,
                 "year": year,
                 "wins": wins.strip(),
-                "losses": losses.strip()
+                "losses": losses.strip(),
             }
         else:
             print(f"No valid wins-losses format found for {team} {year}.")
-            team_record = {
-                "team": team,
-                "year": year,
-                "wins": None,
-                "losses": None
-            }
+            team_record = {"team": team, "year": year, "wins": None, "losses": None}
     else:
         print(f"Record tag not found for {team} {year}.")
-        team_record = {
-            "team": team,
-            "year": year,
-            "wins": None,
-            "losses": None
-        }
+        team_record = {"team": team, "year": year, "wins": None, "losses": None}
 
     driver.quit()
 
-    return team_record  # Return the team record for later use
+    return team_record
+
 
 def write_nba_csv(nba_teams, years, file_path="nba_stats.csv"):
     global player_data_dict
 
-    # multithread to make this go faster, can set your cores
-    with concurrent.futures.ThreadPoolExecutor(max_workers=os.cpu_count()-2) as executor:
-        futures = [executor.submit(scrape_team_year, team, year) 
-                   for team in nba_teams for year in years]
-        team_records = [future.result() for future in concurrent.futures.as_completed(futures)]
+    with concurrent.futures.ThreadPoolExecutor(
+        max_workers=os.cpu_count() - 2
+    ) as executor:
+        futures = [
+            executor.submit(scrape_team_year, team, year)
+            for team in nba_teams
+            for year in years
+        ]
+        team_records = [
+            future.result() for future in concurrent.futures.as_completed(futures)
+        ]
 
     team_records = [record for record in team_records if record is not None]
 
-    # Convert player_data_dict to DataFrame
     if not player_data_dict:
         print("No player data scraped. Exiting.")
         return
     all_data = pd.DataFrame(list(player_data_dict.values()))
     team_records_df = pd.DataFrame(team_records)
 
-    # Left join all_data with team_records_df on team and year
     if not all_data.empty and not team_records_df.empty:
         all_data = pd.merge(all_data, team_records_df, on=["team", "year"], how="left")
         print("Team records successfully joined with player data.")
     else:
         print("No data to merge. Check if tables were scraped correctly.")
 
-    # Save the combined DataFrame to CSV
     if not all_data.empty:
         all_data.to_csv(file_path, index=False)
         print(f"Data scraping complete and saved to {file_path}")
     else:
         print("No data scraped. Check if tables were found.")
 
+
 def main():
-    # Teams and years to scrape
-    nba_teams = ["ATL", "BRK"]  # Add more teams as needed, leave as 2 for debugging. This is set in scrape_clean.py.
+    nba_teams = [
+        "ATL",
+        "BRK",
+    ]
     years = range(2023, 2025)
     write_nba_csv(nba_teams, years)
+
 
 if __name__ == "__main__":
     main()
