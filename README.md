@@ -27,9 +27,9 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 
 
 <h3 align="left">Collection Methodology</h3>
-We originally planned to scrape player ratings from <a href="https://2kratings.com">2KRatings.com</a>, which provides historical 2K ratings. However, the website lacked sufficient data for many players for seasons in the past, leaving our data with significant missing 2k ratings. Instead, we pivoted to HoopsHype, Which had more complete data and consistently structured urls, giving us a more complete dataset.
+We originally planned to scrape player ratings from <a href="https://2kratings.com">2KRatings.com</a>, which provides historical 2K ratings. However, the website lacked sufficient data for many players for seasons in the past, leaving our data with significant missing 2k ratings. Instead, we pivoted to <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype.com</a>, Which had more complete data and consistently structured urls, giving us a more complete dataset.
 
-For real-world NBA statistics, we scraped Basketball-Reference using Python’s <b>BeautifulSoup</b> and <b>requests</b> libraries. We iterated through team pages for each season, extracting player performance metrics. Our scraper collected per-game statistics and awards information and some play-by-play statistics.
+For real-world NBA statistics, we scraped Basketball-Reference using Python’s <b>BeautifulSoup</b> and <b>Selenium</b> libraries. Selenium was used for Basketball-Reference, as we encountered issues retrieving data directly with BeautifulSoup. We iterated through team pages for each season, extracting player performance metrics. Our scraper collected per-game statistics and awards information and some play-by-play statistics.
 
 After scraping, we joined the datasets on player name and year, formatting to ensure consistency across sources by stripping excess whitespace, punctuation, and converting them to unicode-normalized formats to handle special characters and accents. This helped align names as much as possible between Basketball-Reference and HoopsHype, but inevitably, some players still lacked a matched 2K rating after the join. This occurred for two main reasons:
 
