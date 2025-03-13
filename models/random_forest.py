@@ -118,6 +118,7 @@ test_mse = mean_squared_error(y_test, y_hat_test)
 test_mae = mean_absolute_error(y_test, y_hat_test)
 test_r2 = r2_score(y_test, y_hat_test)
 
+print("Train Metrics:")
 print(f"Training MSE: {train_mse}")
 print(f"Training MAE: {train_mae}")
 print(f"Training R²: {train_r2}")
