@@ -93,6 +93,20 @@ While we made efforts to manually check and resolve inconsistencies in player na
 - Testing R²: 0.84952199579226  
 - Total observations: 5318
 
+### Random Forest:
+The **Random Forest** algorithm is an ensemble learning method that builds multiple decision trees using random subsets of features and training data. Each tree makes its own prediction, and the model aggregates these predictions—typically by averaging them—to improve accuracy and reduce overfitting. For predicting NBA 2K ratings, Random Forest is particularly beneficial because it introduces randomness in feature selection, ensuring that some trees prioritize the most important attributes while others consider less obvious factors. By leveraging multiple decision trees, the model can better handle interactions between player attributes and reduce the impact of noisy or redundant features. Random Forest model results are below:
+
+**Train Metrics:**
+- Training MSE: 1.3301168757094948
+- Training MAE: 0.7954301177544106
+- Training R²: 0.9756495944280227
+
+**Test Metrics:**
+- Testing MSE: 8.743895164885403
+- Testing MAE: 2.004131252289332
+- Testing R²: 0.8397806500772991
+- Total observations: 5318
+
 ### Ridge Regression:
 
 **Ridge Regression** is a regularization technique that adds a penalty term to the error function, preventing overfitting and accounting for multicollinearity.
