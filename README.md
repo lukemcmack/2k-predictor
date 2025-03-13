@@ -99,4 +99,5 @@ Run the Python file **scrape_clean.py**. This file will scrape the 2010-2024 NBA
 
 
 *(The scraping script uses geckodriver, this file is already in the data_scraping file)*
+
 *(If you do not want to run this script, the data is also stored in the folder **data_v2**.)*
