@@ -22,7 +22,7 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 - <b>Assists Per Game</b>: The number of scoring assists the player made per game<br>
 - <b>Steals Per Game</b>: The number of steals the player made per game<br>
 - <b>Blocks Per Game</b>: The number of blocks the player made per game<br>
-- <b>Turnovers Per Game</b>: The number of turnovers
+- <b>Turnovers Per Game</b>: The number of turnovers<br>
 - <b>Awards</b>: Three dummy variables signifying if the player was an All Star, MVP, or Defensive Player of the Year
 
 
