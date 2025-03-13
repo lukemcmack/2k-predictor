@@ -48,6 +48,19 @@ While we made efforts to manually check and resolve inconsistencies in player na
 <br>
 
 <h2 align="center">The Model(s)</h2>
+<h3 align="left">OLS:</h3>
+<b> The Ordinary Least Squares model uses all the features from the feature list. It is common in many sports for a player to reach a peak age where their performance is at its best. Therefore, we included an age squared variable to control for the non-linear effects of a player's age on their performance and resulting rating. All other features are assumed to have a linear effect on rating which is a limitation to the simple OLS model. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. This is where an extension to the polynomial regression could provide better results. Below are the OLS results:<br>
+
+<b>Train Metrics:<br>
+<b>Training MSE: 10.728237088033223<br>
+<b>Training MAE: 2.281645166361385<br>
+<b>Training R²: 0.8035985190951043<br>
+
+<b>Test Metrics:</b><b>
+<b>Testing MSE: 10.356485222296063<br>
+<b>Testing MAE: 2.2197833920093824<br>
+<b>Testing R²: 0.8102322479272221<br>
+<b>Total observations: 5318<br>
 
 <h2 align="center">Results and Recommendations</h2>
 
