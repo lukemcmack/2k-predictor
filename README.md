@@ -49,6 +49,55 @@ While we made efforts to manually check and resolve inconsistencies in player na
 
 <h2 align="center">The Model(s)</h2>
 
-<h2 align="center">Results and Recommendations</h2>
+### OLS:
 
-<h2 align="center">Reproducing the Results</h2>
+**The Ordinary Least Squares model** uses all the features from the feature list. It is common in many sports for a player to reach a peak age where their performance is at its best. Therefore, we included an age squared variable to control for the non-linear effects of a player's age on their performance and resulting rating. All other features are assumed to have a linear effect on rating, which is a limitation of the simple OLS model. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. This is where an extension to the polynomial regression could provide better results. Below are the OLS results:
+
+**Train Metrics:**  
+- Training MSE: 10.728237088033223  
+- Training MAE: 2.281645166361385  
+- Training R²: 0.8035985190951043  
+
+**Test Metrics:**  
+- Testing MSE: 10.356485222296063  
+- Testing MAE: 2.2197833920093824  
+- Testing R²: 0.8102322479272221  
+- Total observations: 5318  
+
+## Results and Recommendations  
+
+## Reproducing the Results  
+
+**The required Python packages are:**  
+
+- **pandas** – for data manipulation and analysis  
+- **requests** – for making HTTP requests to fetch web pages  
+- **beautifulsoup** – for parsing HTML and extracting data from web pages  
+- **selenium** – for web scraping basketball-reference.com  
+- **scikit-learn** – for machine learning models and data preprocessing  
+
+These can be installed using pip (or pip3):  
+
+```bash
+pip install pandas requests beautifulsoup4 selenium scikit-learn
+```
+
+## Data Scraping:  
+
+After downloading and opening the repo, make the working directory **"data_scraping"** within the main project folder:  
+
+```bash
+cd data_scraping
+```
+
+Run the Python file **scrape_clean.py**. This file will scrape the 2010-2024 NBA stats (the teams and years can be adjusted) from basketball-reference.com, 2K stats from hoopshype.com from NBA 2K11 to NBA 2K25, and then merge and clean the data, dropping observations with missing data where joins did not find matching records. This will output four .csv files:  
+
+- **nba_stats.csv** - all of the scraped NBA data for the specified teams and years  
+- **nba2k_ratings.csv** - all of the scraped 2K ratings for the specified years  
+- **nba_combined_stats.csv** - uncleaned merged datasets  
+- **nba_2k_cleaned_final.csv** - the final merged dataset, formatted for analysis with missing records dropped  
+
+
+*(The scraping script uses geckodriver, this file is already in the data_scraping file)*
+
+*(If you do not want to run this script, the data is also stored in the folder **data_v2**.)*
