@@ -7,7 +7,7 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 <h2 align="center">The Data</h2>
 <h3 align="left">Sources</h3>
 - Our real-life NBA season statistics are taken from <a href="https://www.basketball-reference.com">basketball-reference.com</a>. One of the most comprehensive and widely used databases for historical and current basketball (and other sports) data. It provides a vast range of statistics, including advanced metrics, which makes it ideal for predictive modeling. It is cited by many reputable industry sources, such as ESPN. <br>
-- Our 2K rating statistics are start-of-season ratings (since the 2K games update their overalls throughout their 1-year live service period) taken from <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype</a>, a subsidiary of USA Today Sports. The 2k ratings were corss referenced against a community trusted and run nba 2k ratings site, <a href="2kratings.com"</a>. This also allowed us to confirm that the 2k ratings from Hoops Hype were snapshots of the players' ratings upon game launch
+- Our 2K rating statistics are start-of-season ratings (since the 2K games update their overalls throughout their 1-year live service period) taken from <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype</a>, a subsidiary of USA Today Sports. The 2k ratings were corss referenced against a community trusted and run nba 2k ratings site, <a href="2kratings.com">2kratings.com</a>. This also allowed us to confirm that the 2k ratings from Hoops Hype were snapshots of the players' ratings upon game launch
 
 <h3 align="left">Features</h3>
 - <b>Age</b>: The player's age at the end of the season. <br>
