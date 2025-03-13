@@ -3,16 +3,12 @@ import pandas as pd
 def clean_data(input_file_name = 'nba_combined_stats.csv', output_file_name = 'nba_2k_cleaned_final.csv'):
     df = pd.read_csv(input_file_name)
     df['experience'] = df['experience'].replace('R', '0')
-    # Define a function to label the 'awards' column
-    def label_awards(awards):
-        if pd.isna(awards):  # Check if the value is null
-            return 0
-        elif 'AS' in awards:  # Check if 'AS' is in the awards string
-            return 2
-        elif awards:  # Check if the awards field is non-empty
-            return 1
-        else:
-            return 0  # Fallback for any unexpected cases
+   
+   #Coding dummy variables for awards.
+    df['AS'] = df['awards'].apply(lambda x: 1 if pd.notna(x) and 'AS' in x else 0)
+    df['MVP'] = df['awards'].apply(lambda x: 1 if pd.notna(x) and 'MVP-1' in x else 0)
+    df['DPOY'] = df['awards'].apply(lambda x: 1 if pd.notna(x) and 'DPOY-1' in x else 0)
+    
     df = df.drop(df[df['name'] == 'Team Total'].index)
 
     initial_count = len(df)

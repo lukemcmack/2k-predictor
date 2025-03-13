@@ -28,16 +28,9 @@ X = df[[
 ]]
 y = df["rating"]
 
-X = X[y.notna()]
-y = y[y.notna()]
 X = X.fillna(0)
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=42)
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
-print("Training set shape:", X_train.shape)
-print("Testing set shape:", X_test.shape)
 
 model = GridSearchCV(estimator=KNeighborsRegressor(), param_grid={
     "n_neighbors": range(1, 50)

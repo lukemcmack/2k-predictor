@@ -6,6 +6,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.linear_model import Ridge
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
 
@@ -27,7 +28,8 @@ df["previous_rating"] = df["previous_rating"].fillna(0)
 NUM_VARS = ["age","agesq","games","minutes_played_per_game",
             "field_goal_percentage","three_point_field_goal_attempts_per_game",
             "three_point_field_goal_percentage","total_rebounds_per_game","assists_per_game","steals_per_game",
-            "blocks_per_game","turnovers_per_game","points_per_game","previous_rating", "has_previous_rating"]
+            "blocks_per_game","turnovers_per_game","points_per_game","previous_rating", "has_previous_rating", "AS",
+            "MVP","DPOY"]
 
 CAT_VARS = ["position"]
 
@@ -36,12 +38,10 @@ X = df[[
     "three_point_field_goal_attempts_per_game", "three_point_field_goal_percentage",
     "total_rebounds_per_game", "assists_per_game", "steals_per_game",
     "blocks_per_game", "turnovers_per_game", "points_per_game",
-    "previous_rating", "has_previous_rating", "position"
+    "previous_rating", "has_previous_rating", "position", "AS","MVP","DPOY"
 ]]
 y = df["rating"]
 
-X = X[y.notna()]
-y = y[y.notna()]
 X = X.fillna(0)
 
 X_train, X_test, y_train, y_test= train_test_split(X, y, random_state=42)
@@ -50,7 +50,7 @@ base_model = make_pipeline(
     ColumnTransformer(
         [
             ("cat_vars", OneHotEncoder(drop="first"), CAT_VARS),
-            ("num_vars", "passthrough", NUM_VARS)
+            ("num_vars", StandardScaler(), NUM_VARS)
         ],
         remainder="drop"
     ),
@@ -72,7 +72,7 @@ y_hat_test = best_model.predict(X_test)
 feature_names = best_model.named_steps["columntransformer"].get_feature_names_out()
 coefs = best_model.named_steps["ridge"].coef_.flatten()
 
-print("\nFeature Coefficients:")
+print("\nScaled Feature Coefficients:")
 for name, coef in zip(feature_names, coefs):
     print(f"{name}: {coef}")
 
