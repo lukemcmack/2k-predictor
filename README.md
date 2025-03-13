@@ -6,8 +6,8 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 
 <h2 align="center">The Data</h2>
 <h3 align="left">Sources</h3>
-- Our real-life NBA season statistics are taken from <a href="https://www.basketball-reference.com">basketball-reference.com</a>. <br>
-- Our 2K rating statistics are start-of-season ratings (since the 2K games update their overalls throughout their 1-year live service period) taken from <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype</a>, a subsidiary of USA Today Sports.
+- Our real-life NBA season statistics are taken from <a href="https://www.basketball-reference.com">basketball-reference.com</a>. One of the most comprehensive and widely used databases for historical and current basketball (and other sports) data. It provides a vast range of statistics, including advanced metrics, which makes it ideal for predictive modeling. It is cited by many reputable industry sources, such as ESPN. <br>
+- Our 2K rating statistics are start-of-season ratings (since the 2K games update their overalls throughout their 1-year live service period) taken from <a href="https://hoopshype.com/nba2k/2024-2025/">HoopsHype</a>, a subsidiary of USA Today Sports. The 2k ratings were corss referenced against a community trusted and run nba 2k ratings site, <a href="2kratings.com"</a>. This also allowed us to confirm that the 2k ratings from Hoops Hype were snapshots of the players' ratings upon game launch
 
 <h3 align="left">Features</h3>
 - <b>Age</b>: The player's age at the end of the season. <br>
@@ -27,10 +27,25 @@ Our goal is to build a model that will accurately predict an NBA player's <b>2K 
 
 
 <h3 align="left">Collection Methodology</h3>
-<b> LUKE WRITE THIS UP!!! </b>
+We originally planned to scrape player ratings from <a href="https://2kratings.com">2KRatings.com</a>, which provides historical 2K ratings. However, the website lacked sufficient data for many players for seasons in the past, leaving our data with significant missing 2k ratings. Instead, we pivoted to HoopsHype, Which had more complete data and consistently structured urls, giving us a more complete dataset.
+
+For real-world NBA statistics, we scraped Basketball-Reference using Python’s <b>BeautifulSoup</b> and <b>requests</b> libraries. We iterated through team pages for each season, extracting player performance metrics. Our scraper collected per-game statistics and awards information and some play-by-play statistics.
+
+After scraping, we joined the datasets on player name and year, formatting to ensure consistency across sources by stripping excess whitespace, punctuation, and converting them to unicode-normalized formats to handle special characters and accents. This helped align names as much as possible between Basketball-Reference and HoopsHype, but inevitably, some players still lacked a matched 2K rating after the join. This occurred for two main reasons:
+
+<ol>
+  <li>Free Agents – Some players appeared in Basketball-Reference's stats but were not assigned a 2K rating at the start of the season because they were unsigned free agents.</li>
+  <li>Name Mismatches – Even after standardization, some names did not match exactly between the two sources due to differences in formatting, abbreviations, or middle name usage.</li>
+</ol>
+
+Unmatched players were dropeed from the dataset. After joining the datasets, we conducted spot checks to verify the accuracy of the merged data against the original sources.
 
 <h3 align="left">Limitations</h3>
-We decided to omit playoff statistics, since most players had empty data cells for playoff statistics in any given season. Presumably, this could affect our model since high playoff-performers are seen in high regard by both the public and the game developers.<br>
+We decided to omit playoff statistics, since most players had empty data cells for playoff statistics in any given season. Presumably, this could affect our model since high playoff-performers are seen in high regard by both the public and the game developers.
+
+While we made efforts to manually check and resolve inconsistencies in player names, the data is missing unmatched players which were dropeed from the dataset.
+
+<br>
 
 <h2 align="center">The Model(s)</h2>
 
