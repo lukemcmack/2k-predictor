@@ -109,7 +109,7 @@ While we made efforts to manually check and resolve inconsistencies in player na
 - Testing R²: 0.8372737449004417  
 - Total observations: 5318
 
-## Reproducing the Results  
+<h2 align="center">Reproducing the Results</h2>  
 
 **The required Python packages are:**  
 
