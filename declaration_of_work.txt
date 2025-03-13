@@ -1,0 +1,4 @@
+Orlando Di Leo: 
+Luke McDonald: 
+Danny Urrutia: 
+Jisoo Yoo: Wrote regression code for polynomial/random forest/ridge/SVR based off of OLS code, formatted README, formatted code for consistency, presentation setup
