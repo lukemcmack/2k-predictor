@@ -108,6 +108,22 @@ While we made efforts to manually check and resolve inconsistencies in player na
 - Testing R²: 0.8102366189537344  
 - Total observations: 5318
 
+### Random Forest
+
+The **Random Forest** algorithm is an ensemble learning method that builds multiple decision trees using random subsets of features and training data. Each tree makes its own prediction, and the model aggregates these predictions—typically by averaging them—to improve accuracy and reduce overfitting. For predicting NBA 2K ratings, Random Forest is particularly beneficial because it introduces randomness in feature selection, ensuring that some trees prioritize the most important attributes while others consider less obvious factors. Using GridSearchCV, the best hyperparameters for our model were a max depth of 20 with 200 estimators. Random Forest results are below:
+
+**Train Metrics:**
+- Training MSE: 1.3301168757094948
+- Training MAE: 0.7954301177544106
+- Training R²: 0.9756495944280227
+  
+**Test Metrics:**
+- Testing MSE: 8.743895164885403
+- Testing MAE: 2.004131252289332
+- Testing R²: 0.8397806500772991
+- Total observations: 5318
+
+
 ### Support Vector Regression
 
 **Support Vector Regression**, or SVR, defines a "tube" around the regression line where errors are tolerated using the C and epsilon hyperparameters. It improves robustness and accounts for larger variations.
