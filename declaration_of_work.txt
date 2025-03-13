@@ -1,4 +1,5 @@
-Orlando Di Leo: 
+Orlando Di Leo: Wrote code for the OLS regression model and participated in writing the README, preparing the presentation, creating dummy variables for awards, and cleaning code for the various models.
+
 Luke McDonald:
 
 For this project, I was mainly responsible for the data design and scraping/cleaning implementation. Additionally, I helped with discussions on model specification, writing the data collection methodology for the readme, and discussing limitations. I also helped along with the rest of the group with the presentation.
