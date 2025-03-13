@@ -1,18 +1,7 @@
 Orlando Di Leo: Wrote code for the OLS regression model and participated in writing the README, preparing the presentation, creating dummy variables for awards, and cleaning code for the various models.
 
-Luke McDonald:
-
-For this project, I was mainly responsible for the data design and scraping/cleaning implementation. Additionally, I helped with discussions on model specification, writing the data collection methodology for the readme, and discussing limitations. I also helped along with the rest of the group with the presentation.
-
-For scraping NBA statistics I scraped player performance data from www.basketball-reference.com, I created a script utilizing selenium and beautiful soup. Data collected included per-game statistics, shooting percentages, defensive metrics, and awards. I also had a version of the script to collect playoff data, but the group ultimately decided to drop playoff data to maintain consistency between players who made and did not make the playoffs.
-   
-For scraping NBA 2K ratings, Initially, I attempted to obtain ratings from 2KRatings.com but had to pivot to hoopshype.com/nba2k/ due to limitations in scraping. To standardize, we used ratings that were taken at the start-of-season, as 2K continuously updates ratings throughout the year.
-   
-After collecting data from both sources, I standardized player names to merge the datasets. I wrote a script to clean the dataset into model usable format and save it in CSV format for analysis. All of these scripts were combined into one script for ease of use.
-
-I helped support the rest of the group’s work on building the ML models by discussing implications of our results, limitations, and features to include in our models, and they did an awesome job implementing and iterating through using scikit-learn. We all worked together on the final presentation.
- 
-
+Luke McDonald: scraping/cleaning implementation, discussions on model specification, presentation, writing the data collection methodology for the readme, and discussing limitations
 
 Danny Urrutia: Wrote regression code for KNN and built first base code of variables and train/metrics for consistency on other models, made the Google Slides file for in-class presentation.
+
 Jisoo Yoo: Wrote regression code for polynomial/random forest/ridge/SVR based off of OLS code, formatted README, formatted code for consistency, presentation setup
