@@ -15,8 +15,6 @@ df = df[df["year"] <= 2024]
 df = df.drop_duplicates(subset=["name", "year"], keep="first")
 df = df.sort_values(by=["name", "year"])
 
-df["agesq"] = df["age"] ** 2
-
 df["previous_rating"] = df.groupby("name")["rating"].shift(1)
 df["has_previous_rating"] = df["previous_rating"].notna().astype(int)
 df["previous_rating"] = df["previous_rating"].fillna(0)
