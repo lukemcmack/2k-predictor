@@ -83,14 +83,14 @@ While we made efforts to manually check and resolve inconsistencies in player na
 **Polynomial regression** extends the traditional OLS model by including higher-order terms to account for non-linear relationships between the features and the target variable. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. In terms of test MSE, this regression model performed the best out of all the models we used.
 
 **Train Metrics:**
-- Training MSE: 7.974513501661869  
-- Training MAE: 1.9815499306900208  
-- Training R²: 0.8540108455498717
+- Training MSE: 8.047981891651425
+- Training MAE: 1.9936395698349267
+- Training R²: 0.8526658621686094
 
 **Test Metrics:**
-- Testing MSE: 8.212265834610262  
-- Testing MAE: 1.9893638025497842  
-- Testing R²: 0.84952199579226  
+- Testing MSE: 8.296977397527236
+- Testing MAE: 1.994336136907835
+- Testing R²: 0.8479697777835172
 - Total observations: 5318
 
 ### Ridge Regression:
