@@ -51,7 +51,7 @@ While we made efforts to manually check and resolve inconsistencies in player na
 
 ### OLS:
 
-**The Ordinary Least Squares model** uses all the features from the feature list. It is common in many sports for a player to reach a peak age where their performance is at its best. Therefore, we included an age squared variable to control for the non-linear effects of a player's age on their performance and resulting rating. All other features are assumed to have a linear effect on rating, which is a limitation of the simple OLS model. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. This is where an extension to the polynomial regression could provide better results. Below are the OLS results:
+**The Ordinary Least Squares model** uses all the features from the feature list. It is common in many sports for a player to reach a peak age where their performance is at its best. Therefore, we included an age squared variable to control for the non-linear effects of a player's age on their performance and resulting rating. All other features are assumed to have a linear effect on rating, which is a limitation of the simple OLS model. 
 
 **Train Metrics:**  
 - Training MSE: 10.728237088033223  
@@ -62,9 +62,52 @@ While we made efforts to manually check and resolve inconsistencies in player na
 - Testing MSE: 10.356485222296063  
 - Testing MAE: 2.2197833920093824  
 - Testing R²: 0.8102322479272221  
-- Total observations: 5318  
+- Total observations: 5318
 
-## Results and Recommendations  
+### Polynomial (2nd Degree):
+
+**Polynomial regression** extends the traditional OLS model by including higher-order terms to account for non-linear relationships between the features and the target variable. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. In terms of test MSE, this regression model performed the best out of all the models we used.
+
+**Train Metrics:**
+- Training MSE: 7.974513501661869  
+- Training MAE: 1.9815499306900208  
+- Training R²: 0.8540108455498717
+
+**Test Metrics:**
+- Testing MSE: 8.212265834610262  
+- Testing MAE: 1.9893638025497842  
+- Testing R²: 0.84952199579226  
+- Total observations: 5318
+
+### Ridge Regression:
+
+**Ridge Regression** is a regularization technique that adds a penalty term to the error function, preventing overfitting and accounting for multicollinearity.
+
+**Train Metrics:**
+- Training MSE: 10.72823743858637  
+- Training MAE: 2.2816339744681433  
+- Training R²: 0.8035985126775395
+
+**Test Metrics:**
+- Testing MSE: 10.356246675593654  
+- Testing MAE: 2.219767987693552  
+- Testing R²: 0.8102366189537344  
+- Total observations: 5318
+
+### Support Vector Regression
+
+**Support Vector Regression**, or SVR, defines a "tube" around the regression line where errors are tolerated using the C and epsilon hyperparameters. It improves robustness and accounts for larger variations.
+
+**Train Metrics:**
+- Training MSE: 7.965665599026441  
+- Training MAE: 1.7969082378461734  
+- Training R²: 0.8541728238102552
+
+**Test Metrics:**
+- Testing MSE: 8.880708327997882  
+- Testing MAE: 1.992016755520192  
+- Testing R²: 0.8372737449004417  
+- Total observations: 5318
 
 ## Reproducing the Results  
 
@@ -101,3 +144,11 @@ Run the Python file **scrape_clean.py**. This file will scrape the 2010-2024 NBA
 *(The scraping script uses geckodriver, this file is already in the data_scraping file)*
 
 *(If you do not want to run this script, the data is also stored in the folder **data_v2**.)*
+
+### Running the Models
+
+From the top level of the repository, run the following code:
+```bash
+python3 models/[model name].py
+```
+according to the file names. The test and train metrics will be printed, along with coefficients and feature importances as appropriate.
