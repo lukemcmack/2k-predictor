@@ -97,4 +97,6 @@ Run the Python file **scrape_clean.py**. This file will scrape the 2010-2024 NBA
 - **nba_combined_stats.csv** - uncleaned merged datasets  
 - **nba_2k_cleaned_final.csv** - the final merged dataset, formatted for analysis with missing records dropped  
 
+
+*(The scraping script uses geckodriver, this file is already in the data_scraping file)*
 *(If you do not want to run this script, the data is also stored in the folder **data_v2**.)*
