@@ -94,7 +94,7 @@ These can be installed using pip (or pip3):
 pip install pandas requests beautifulsoup4 selenium scikit-learn
 ```
 
-## Data Scraping:  
+### Data Scraping:  
 
 After downloading and opening the repo, make the working directory **"data_scraping"** within the main project folder:  
 
