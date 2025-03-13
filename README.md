@@ -78,6 +78,51 @@ While we made efforts to manually check and resolve inconsistencies in player na
 - Testing R²: 0.8102322479272221  
 - Total observations: 5318
 
+### Polynomial (2nd Degree):
+
+**Polynomial regression** extends the traditional OLS model by including higher-order terms to account for non-linear relationships between the features and the target variable. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. In terms of test MSE, this regression model performed the best out of all the models we used.
+
+**Train Metrics:**
+- Training MSE: 7.974513501661869  
+- Training MAE: 1.9815499306900208  
+- Training R²: 0.8540108455498717
+
+**Test Metrics:**
+- Testing MSE: 8.212265834610262  
+- Testing MAE: 1.9893638025497842  
+- Testing R²: 0.84952199579226  
+- Total observations: 5318
+
+### Ridge Regression:
+
+**Ridge Regression** is a regularization technique that adds a penalty term to the error function, preventing overfitting and accounting for multicollinearity.
+
+**Train Metrics:**
+- Training MSE: 10.72823743858637  
+- Training MAE: 2.2816339744681433  
+- Training R²: 0.8035985126775395
+
+**Test Metrics:**
+- Testing MSE: 10.356246675593654  
+- Testing MAE: 2.219767987693552  
+- Testing R²: 0.8102366189537344  
+- Total observations: 5318
+
+### Support Vector Regression
+
+**Support Vector Regression**, or SVR, defines a "tube" around the regression line where errors are tolerated using the C and epsilon hyperparameters. It improves robustness and accounts for larger variations.
+
+**Train Metrics:**
+- Training MSE: 7.965665599026441  
+- Training MAE: 1.7969082378461734  
+- Training R²: 0.8541728238102552
+
+**Test Metrics:**
+- Testing MSE: 8.880708327997882  
+- Testing MAE: 1.992016755520192  
+- Testing R²: 0.8372737449004417  
+- Total observations: 5318
+
 <h2 align="center">Reproducing the Results</h2>
 
 **The required Python packages are:**  
