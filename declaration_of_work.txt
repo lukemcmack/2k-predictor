@@ -13,5 +13,5 @@ I helped support the rest of the group’s work on building the ML models by dis
  
 
 
-Danny Urrutia: 
+Danny Urrutia: Wrote regression code for KNN and some of first base code of variables and train/metrics for consistency on other models, made the Google Slides file for in-class presentation.
 Jisoo Yoo: Wrote regression code for polynomial/random forest/ridge/SVR based off of OLS code, formatted README, formatted code for consistency, presentation setup
