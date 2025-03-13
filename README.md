@@ -49,8 +49,21 @@ While we made efforts to manually check and resolve inconsistencies in player na
 
 <h2 align="center">The Model(s)</h2>
 
-### OLS:
+### KNN:
+**K-Nearest Neighbors** predicts player ratings by calculating distances between players based on their performance metrics. This estimates ratings relative to other similar players’ statistics and features. This is effective since the ratings consistently range between 40-99, so the model will work when applied to unseen and future data. However, with so many performance metrics, distances between players become less meaningful, and the model struggles to identify which features are most important for predicting 2K ratings. As a result, less relevant features can hurt the model’s accuracy, limiting its overall performance.
 
+**Train Metrics:**  
+- Training MSE: 9.613644652967167  
+- Training MAE: 2.17810248928604  
+- Training R²: 0.824003325873335  
+
+**Test Metrics:**  
+- Testing MSE: 11.141943702230783  
+- Testing MAE: 2.3165413533834585  
+- Testing R²: 0.7958398467520803  
+- Total observations: 5318 
+
+### OLS:
 **The Ordinary Least Squares model** uses all the features from the feature list. It is common in many sports for a player to reach a peak age where their performance is at its best. Therefore, we included an age squared variable to control for the non-linear effects of a player's age on their performance and resulting rating. All other features are assumed to have a linear effect on rating, which is a limitation of the simple OLS model. It is possible, for example, that the marginal effect on rating of a player going from 10 to 11 points per game is not the same as a player going from 20 to 21 points per game. This is where an extension to the polynomial regression could provide better results. Below are the OLS results:
 
 **Train Metrics:**  
