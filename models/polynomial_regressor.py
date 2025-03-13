@@ -24,7 +24,7 @@ df["previous_rating"] = df.groupby("name")["rating"].shift(1)
 df["has_previous_rating"] = df["previous_rating"].notna().astype(int)
 df["previous_rating"] = df["previous_rating"].fillna(0)
 
-NUM_VARS = ["age","agesq","games","minutes_played_per_game",
+NUM_VARS = ["age","games","minutes_played_per_game",
             "field_goal_percentage","three_point_field_goal_attempts_per_game",
             "three_point_field_goal_percentage","total_rebounds_per_game","assists_per_game","steals_per_game",
             "blocks_per_game","turnovers_per_game","points_per_game","previous_rating", "has_previous_rating", "AS",
@@ -33,7 +33,7 @@ NUM_VARS = ["age","agesq","games","minutes_played_per_game",
 CAT_VARS = ["position"]
 
 X = df[[
-    "age", "agesq","games", "minutes_played_per_game", "field_goal_percentage",
+    "age","games", "minutes_played_per_game", "field_goal_percentage",
     "three_point_field_goal_attempts_per_game", "three_point_field_goal_percentage",
     "total_rebounds_per_game", "assists_per_game", "steals_per_game",
     "blocks_per_game", "turnovers_per_game", "points_per_game",
@@ -77,6 +77,7 @@ test_mse = mean_squared_error(y_test, y_hat_test)
 test_mae = mean_absolute_error(y_test, y_hat_test)
 test_r2 = r2_score(y_test, y_hat_test)
 
+print("Train Metrics:")
 print(f"Training MSE: {train_mse}")
 print(f"Training MAE: {train_mae}")
 print(f"Training R²: {train_r2}")
